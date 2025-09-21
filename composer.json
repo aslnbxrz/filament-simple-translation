@@ -2,7 +2,7 @@
   "name": "aslnbxrz/filament-simple-translation",
   "description": "Filament 4 page to manage Simple Translation keys & translations inline.",
   "type": "library",
-  "version": "1.0",
+  "version": "1.0.1",
   "require": {
     "php": "^8.1",
     "filament/filament": "^4.0",
