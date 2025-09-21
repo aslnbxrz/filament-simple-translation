@@ -1,0 +1,31 @@
+{
+  "name": "aslnbxrz/filament-simple-translation",
+  "description": "Filament 4 page to manage Simple Translation keys & translations inline.",
+  "type": "library",
+  "version": "1.0",
+  "require": {
+    "php": "^8.1",
+    "filament/filament": "^4.0",
+    "livewire/livewire": "^3.0",
+    "aslnbxrz/simple-translation": "^1.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Aslnbxrz\\FilamentTranslation\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "aslnbxrz",
+      "email": "bexruz.aslonov1@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Aslnbxrz\\FilamentTranslation\\FilamentSimpleTranslationServiceProvider"
+      ]
+    }
+  }
+}
