@@ -1,6 +1,6 @@
 <?php
 
-namespace Aslnbxrz\FilamentTranslation\Filament\Pages;
+namespace Aslnbxrz\FilamentSimpleTranslation\Filament\Pages;
 
 use Aslnbxrz\SimpleTranslation\Models\AppText;
 use Aslnbxrz\SimpleTranslation\Services\AppLanguageService;
@@ -11,8 +11,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\IconPosition;
-use Filament\Tables;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -24,14 +26,13 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 
-class TranslationsPage extends Page implements Tables\Contracts\HasTable
+class TranslationsPage extends Page implements HasTable
 {
-    use Tables\Concerns\InteractsWithTable;
+    use InteractsWithTable;
 
-    protected static string|null|\BackedEnum $navigationIcon = 'heroicon-o-language';
-    protected static ?string $navigationLabel = 'Translations';
+    protected static string|null|\BackedEnum $navigationIcon = Heroicon::OutlinedLanguage;
 
-    protected string $view = 'filament-simple-translation::translations-page';
+    protected string $view = 'filament-simple-translation::page';
 
     public static function getNavigationGroup(): string
     {
@@ -91,7 +92,9 @@ class TranslationsPage extends Page implements Tables\Contracts\HasTable
                 SelectFilter::make('scope')
                     ->label(___('Scope'))
                     ->selectablePlaceholder(false)
-                    ->options(Config::get('filament-simple-translation.scopes', []))
+                    ->options(Config::get('simple-translation.available_scopes', [
+                        Config::get('simple-translation.default_scope', 'app'),
+                    ]))
                     ->default($this->scope)
                     ->native(false)
                     ->preload(),

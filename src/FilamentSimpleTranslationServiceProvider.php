@@ -1,31 +1,18 @@
 <?php
 
-namespace Aslnbxrz\FilamentTranslation;
+namespace Aslnbxrz\FilamentSimpleTranslation;
 
-use Illuminate\Support\ServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentSimpleTranslationServiceProvider extends ServiceProvider
+class FilamentSimpleTranslationServiceProvider extends PackageServiceProvider
 {
-    public function register(): void
+    public static string $name = 'filament-simple-translation';
+
+    public function configurePackage(Package $package): void
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/filament-simple-translation.php',
-            'filament-simple-translation'
-        );
+        $package->name(static::$name)->hasViews();
     }
 
-    public function boot(): void
-    {
-        // Config publish
-        $this->publishes([
-            __DIR__ . '/../config/filament-simple-translation.php' => config_path('filament-simple-translation.php'),
-        ], 'filament-simple-translation');
-
-        $this->publishes([
-            __DIR__ . '/../config/filament-simple-translation.php' => config_path('filament-simple-translation.php'),
-        ], 'filament-simple-translation-config');
-
-        // Views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'filament-simple-translation');
-    }
+    public function packageBooted(): void {}
 }
