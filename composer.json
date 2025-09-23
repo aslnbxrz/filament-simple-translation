@@ -7,8 +7,11 @@
     "php": "^8.1",
     "filament/filament": "^4.0",
     "livewire/livewire": "^3.0",
-    "aslnbxrz/simple-translation": "*",
+    "aslnbxrz/simple-translation": "^1.0 || ^2.0",
     "spatie/laravel-package-tools": "^1.92"
+  },
+  "conflict": {
+    "aslnbxrz/simple-translation": "<1.0"
   },
   "license": "MIT",
   "autoload": {
