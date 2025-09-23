@@ -2,7 +2,7 @@
   "name": "aslnbxrz/filament-simple-translation",
   "description": "Filament 4 page to manage Simple Translation keys & translations inline.",
   "type": "library",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "require": {
     "php": "^8.1",
     "filament/filament": "^4.0",
@@ -51,5 +51,37 @@
     "test": "pest",
     "lint": "pint",
     "test:coverage": "pest --coverage"
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/Users/aslnbxrz/Desktop/Composer Packages/SimpleTranslation",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/Users/aslnbxrz/Desktop/Composer Packages/SimplePrefix",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/Users/aslnbxrz/Desktop/Composer Packages/SimpleException",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/Users/aslnbxrz/Desktop/Composer Packages/FilamentTranslation",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
 }
