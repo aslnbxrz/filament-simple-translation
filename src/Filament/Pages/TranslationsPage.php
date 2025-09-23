@@ -5,6 +5,8 @@ namespace Aslnbxrz\FilamentSimpleTranslation\Filament\Pages;
 use Aslnbxrz\SimpleTranslation\Models\AppText;
 use Aslnbxrz\SimpleTranslation\Services\AppLanguageService;
 use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
@@ -102,6 +104,11 @@ class TranslationsPage extends Page implements HasTable
     public function table(Table $table): Table
     {
         return $table
+            ->recordActions([
+                ActionGroup::make([
+                    DeleteAction::make()
+                ])
+            ])
             ->columns([
                 TextColumn::make('text')
                     ->label(___('Core / key'))
